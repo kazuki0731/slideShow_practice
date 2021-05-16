@@ -1,6 +1,7 @@
 import { Grid } from "@material-ui/core";
+import { memo } from "react";
 
-export const Thumbnails = (props) => {
+export const Thumbnails = memo((props) => {
   const { Images, onClickChangeImage, classes } = props;
   return (
     <Grid
@@ -13,7 +14,7 @@ export const Thumbnails = (props) => {
             <Grid item key={index}>
               <img
                 src={image.image}
-                alt="thumbnails"
+                alt="サムネイル画像"
                 className={classes.root}
                 onClick={() => {
                   onClickChangeImage(index);
@@ -25,4 +26,4 @@ export const Thumbnails = (props) => {
         })}
       </Grid>
   )
-}
+});

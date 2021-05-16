@@ -1,6 +1,7 @@
 import { Button, Grid } from "@material-ui/core";
+import { memo } from "react";
 
-export const ShowButtons = (props) => {
+export const ShowButtons = memo((props) => {
   const { onClickPrev, onClickNext } = props;
   return (
     <Grid container justify="center" spacing={1}>
@@ -33,4 +34,4 @@ export const ShowButtons = (props) => {
       </Grid>
     </Grid>
   );
-};
+});
