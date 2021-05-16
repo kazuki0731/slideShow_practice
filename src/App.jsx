@@ -7,7 +7,7 @@ import Image5 from "./img/pic05.png";
 import Image6 from "./img/pic06.png";
 import Image7 from "./img/pic07.png";
 
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 import { useState } from "react";
 
 import { MainImage } from "./components/MainImage";
