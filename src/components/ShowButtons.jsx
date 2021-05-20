@@ -1,5 +1,6 @@
 import { Button, Grid } from "@material-ui/core";
 import { memo } from "react";
+import { PageingButton } from "./PageingButton";
 
 export const ShowButtons = memo((props) => {
   const { onClickPrev, onClickNext } = props;
@@ -15,22 +16,10 @@ export const ShowButtons = memo((props) => {
         </Button>
       </Grid>
       <Grid item>
-        <Button
-          variant="contained"
-          style={{ width: "80px" }}
-          onClick={onClickPrev}
-        >
-          &lt;
-        </Button>
+        <PageingButton onClickFunk={onClickPrev}>&lt;</PageingButton>
       </Grid>
       <Grid item>
-        <Button
-          variant="contained"
-          style={{ width: "80px" }}
-          onClick={onClickNext}
-        >
-          &gt;
-        </Button>
+      <PageingButton onClickFunk={onClickNext}>&gt;</PageingButton>
       </Grid>
     </Grid>
   );
