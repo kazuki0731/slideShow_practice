@@ -73,10 +73,7 @@ export const App = () => {
     <>
       <MainImage mainImage={mainImage} />
       <ShowButtons onClickNext={onClickNext} onClickPrev={onClickPrev} />
-      <Thumbnails
-        IMAGES={IMAGES}
-        onClickChangeImage={onClickChangeImage}
-      />
+      <Thumbnails IMAGES={IMAGES} onClickChangeImage={onClickChangeImage} />
     </>
   );
 };

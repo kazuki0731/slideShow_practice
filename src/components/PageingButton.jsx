@@ -1,6 +1,4 @@
-import React from 'react';
 import { Button, Grid } from "@material-ui/core";
-
 
 export const PageingButton = (props) => {
   const { children, onClickFunk } = props;

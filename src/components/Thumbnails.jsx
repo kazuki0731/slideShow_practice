@@ -10,17 +10,17 @@ const useStyles = makeStyles({
       opacity: "1",
     },
   },
-  thumnb: {
-    width: '340px',
-    margin: '10px auto'
-  }
+  thumb: {
+    width: "340px",
+    margin: "10px auto",
+  },
 });
 
 export const Thumbnails = memo((props) => {
   const classes = useStyles();
   const { IMAGES, onClickChangeImage } = props;
   return (
-    <Grid className={classes.thumnb} container spacing={1}>
+    <Grid className={classes.thumb} container spacing={1}>
       {IMAGES.map((image, index) => {
         return (
           <Grid item key={index}>
