@@ -69,10 +69,28 @@ export const App = () => {
     prevClick();
   };
 
+  const onClickPlay = () => {
+    setInterval(() => {
+      IMAGES[currentIndex].isSelected = false;
+      let target = currentIndex + 1;
+      if (target > IMAGES.length - 1) {
+        target = 0;
+      }
+      setMainImage(IMAGES[target].image);
+      setCurrentIndex(target);
+      IMAGES[target].isSelected = true;
+      console.log(currentIndex)
+    }, 1000);
+  };
+
   return (
     <>
       <MainImage mainImage={mainImage} />
-      <ShowButtons onClickNext={onClickNext} onClickPrev={onClickPrev} />
+      <ShowButtons
+        onClickPlay={onClickPlay}
+        onClickNext={onClickNext}
+        onClickPrev={onClickPrev}
+      />
       <Thumbnails IMAGES={IMAGES} onClickChangeImage={onClickChangeImage} />
     </>
   );

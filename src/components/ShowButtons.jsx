@@ -10,12 +10,16 @@ const useStyles = makeStyles({
 });
 
 export const ShowButtons = memo((props) => {
-  const { onClickPrev, onClickNext } = props;
+  const { onClickPlay, onClickPrev, onClickNext } = props;
   const classes = useStyles();
   return (
     <Grid container justify="center" spacing={1}>
       <Grid item>
-        <Button variant="contained" className={classes.buttonStyle}>
+        <Button
+          variant="contained"
+          className={classes.buttonStyle}
+          onClick={onClickPlay}
+        >
           Play
         </Button>
       </Grid>
