@@ -10,7 +10,8 @@ const useStyles = makeStyles({
 });
 
 export const ShowButtons = memo((props) => {
-  const { onClickPlay, onClickPrev, onClickNext } = props;
+  const { onClickPlay, onClickPrev, onClickNext, play } = props;
+  
   const classes = useStyles();
   return (
     <Grid container justify="center" spacing={1}>
@@ -20,7 +21,7 @@ export const ShowButtons = memo((props) => {
           className={classes.buttonStyle}
           onClick={onClickPlay}
         >
-          Play
+          {play ? <span>Play</span>: <span>Pause</span> }
         </Button>
       </Grid>
       <Grid item>

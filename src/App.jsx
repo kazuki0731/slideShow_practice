@@ -24,9 +24,12 @@ const IMAGES = [
   { image: Image7, isSelected: false },
 ];
 
+let target = 0;
+
 export const App = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mainImage, setMainImage] = useState(IMAGES[currentIndex].image);
+  const [play, setPlay] = useState(true);
 
   function nextClick() {
     IMAGES[currentIndex].isSelected = false;
@@ -41,7 +44,7 @@ export const App = () => {
 
   function prevClick() {
     IMAGES[currentIndex].isSelected = false;
-    let target = currentIndex - 1;
+    target = currentIndex - 1;
     if (target < 0) {
       target = IMAGES.length - 1;
     }
@@ -70,8 +73,17 @@ export const App = () => {
   };
 
   const onClickPlay = () => {
+    let slideIndex = 0;
+    setPlay(false);
     setInterval(() => {
-      nextClick();
+      IMAGES[slideIndex].isSelected = false;
+      slideIndex++;
+      if (slideIndex === IMAGES.length) {
+        slideIndex = 0;
+      }
+      setMainImage(IMAGES[slideIndex].image);
+      IMAGES[slideIndex].isSelected = true;
+      setCurrentIndex(slideIndex);
     }, 1000);
   };
 
@@ -82,6 +94,7 @@ export const App = () => {
         onClickPlay={onClickPlay}
         onClickNext={onClickNext}
         onClickPrev={onClickPrev}
+        play={play}
       />
       <Thumbnails IMAGES={IMAGES} onClickChangeImage={onClickChangeImage} />
     </>
