@@ -79,7 +79,6 @@ export const App = () => {
       setMainImage(IMAGES[target].image);
       setCurrentIndex(target);
       IMAGES[target].isSelected = true;
-      console.log(currentIndex)
     }, 1000);
   };
 
