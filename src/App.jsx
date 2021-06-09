@@ -25,6 +25,8 @@ const IMAGES = [
 ];
 
 let target = 0;
+let slideIndex = 0;
+let timeoutId;
 
 export const App = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,7 +35,7 @@ export const App = () => {
 
   function nextClick() {
     IMAGES[currentIndex].isSelected = false;
-    let target = currentIndex + 1;
+    target = currentIndex + 1;
     if (target > IMAGES.length - 1) {
       target = 0;
     }
@@ -73,18 +75,22 @@ export const App = () => {
   };
 
   const onClickPlay = () => {
-    let slideIndex = 0;
-    setPlay(false);
-    setInterval(() => {
-      IMAGES[slideIndex].isSelected = false;
-      slideIndex++;
-      if (slideIndex === IMAGES.length) {
-        slideIndex = 0;
-      }
-      setMainImage(IMAGES[slideIndex].image);
-      IMAGES[slideIndex].isSelected = true;
-      setCurrentIndex(slideIndex);
-    }, 1000);
+    if (play) {
+      setPlay(false);
+      timeoutId = setInterval(() => {
+        IMAGES[slideIndex].isSelected = false;
+        slideIndex++;
+        if (slideIndex === IMAGES.length) {
+          slideIndex = 0;
+        }
+        setMainImage(IMAGES[slideIndex].image);
+        IMAGES[slideIndex].isSelected = true;
+        setCurrentIndex(slideIndex);
+      }, 1000);
+    } else {
+      setPlay(true);
+      clearTimeout(timeoutId);
+    }
   };
 
   return (
