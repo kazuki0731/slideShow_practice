@@ -71,14 +71,7 @@ export const App = () => {
 
   const onClickPlay = () => {
     setInterval(() => {
-      IMAGES[currentIndex].isSelected = false;
-      let target = currentIndex + 1;
-      if (target > IMAGES.length - 1) {
-        target = 0;
-      }
-      setMainImage(IMAGES[target].image);
-      setCurrentIndex(target);
-      IMAGES[target].isSelected = true;
+      nextClick();
     }, 1000);
   };
 
