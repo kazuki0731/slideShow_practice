@@ -95,7 +95,6 @@ export const App = () => {
 
   return (
     <>
-      <p>うんこ</p>
       <MainImage mainImage={mainImage} />
       <ShowButtons
         onClickPlay={onClickPlay}
