@@ -32,7 +32,6 @@ export const App = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mainImage, setMainImage] = useState(IMAGES[currentIndex].image);
   const [play, setPlay] = useState(true);
-
   function nextClick() {
     IMAGES[currentIndex].isSelected = false;
     target = currentIndex + 1;
@@ -77,6 +76,7 @@ export const App = () => {
   const onClickPlay = () => {
     if (play) {
       setPlay(false);
+      slideIndex = currentIndex;
       timeoutId = setInterval(() => {
         IMAGES[slideIndex].isSelected = false;
         slideIndex++;
@@ -95,6 +95,7 @@ export const App = () => {
 
   return (
     <>
+      <p>うんこ</p>
       <MainImage mainImage={mainImage} />
       <ShowButtons
         onClickPlay={onClickPlay}
